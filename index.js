@@ -9,6 +9,10 @@ const DIALOG_FLOW_CLIENT_ACCESS_TOKEN = '7f961005ef734f54b4c1e2b41a4e2207';
 function startBot() {
 	let bot = new Telegraf(TELEGRAM_BOT_TOKEN);
 
+	bot.command('start', ctx => ctx.reply('Welcome!'));
+	bot.on('sticker', ctx => {
+		return ctx.reply('👍');
+	});
 	bot.on('message', transferMsg);
 
 	bot.startPolling();
